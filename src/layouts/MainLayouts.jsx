@@ -2,6 +2,10 @@ import React from 'react';
 import { Outlet } from 'react-router';
 import Navbar from '../shared/Navbar';
 import Footer from '../shared/Footer';
+import 'aos/dist/aos.css'; 
+import Aos from 'aos';
+
+Aos.init();
 
 const MainLayouts = () => {
     return (
