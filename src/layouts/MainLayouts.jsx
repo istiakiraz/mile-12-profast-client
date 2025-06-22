@@ -9,7 +9,7 @@ Aos.init();
 
 const MainLayouts = () => {
     return (
-        <div>
+        <div className='bg-base-300 pt-4 ' >
             <Navbar></Navbar>
             <Outlet></Outlet>
             <Footer></Footer>

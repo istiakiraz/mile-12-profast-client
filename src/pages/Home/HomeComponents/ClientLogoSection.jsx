@@ -13,7 +13,7 @@ const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7];
 const ClientLogoSection = () => {
   return (
     <div className="lg:w-11/12 mx-auto my-20">
-      <h1 className="text-center text-primary text-2xl mb-4 font-semibold ">
+      <h1 className="text-center text-primary text-3xl mb-4 font-bold ">
         We've helped thousands of sales teams
       </h1>
 
