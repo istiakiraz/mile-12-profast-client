@@ -15,7 +15,9 @@ body{
 }
 
 .swiper-pagination-bullet {
-  background-color: #d1d5db; /* text-gray-300 */
+  background-color: #d1d5db;
+  
+  /* text-gray-300 */
 }
 
 .swiper-pagination-bullet-active {
