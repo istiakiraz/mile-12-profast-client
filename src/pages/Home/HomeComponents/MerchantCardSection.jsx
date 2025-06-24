@@ -10,7 +10,7 @@ const MerchantCardSection = () => {
                 <h1 data-aos="fade-down" className='text-4xl w-9/12 mb-6 font-bold ' >Merchant and Customer Satisfaction is Our First Priority</h1>
                 <p data-aos="fade-up" className='opacity-70 w-8/12 mb-6' > We offer the lowest delivery charge with the highest value along with 100% safety of your product. Pathao courier delivers your parcels in every corner of Bangladesh right on time. </p>
                 <div  data-aos="zoom-in-up" className='gap-2 flex items-center'>
-                    <button   className='btn rounded-4xl text-primary transition-colors duration-600 hover:text-secondary hover:bg-primary hover:btn-outline bg-secondary' >Become a Merchant</button>
+                    <button   className='btn rounded-4xl shadow-none text-primary transition-colors duration-600 hover:text-secondary hover:bg-primary hover:btn-outline bg-secondary' >Become a Merchant</button>
                     <button  className='btn rounded-4xl transition-colors duration-600 border hover:bg-secondary hover:text-primary btn-outline text-secondary ' >Earn with Profast Courier</button>
                 </div>
             </div>

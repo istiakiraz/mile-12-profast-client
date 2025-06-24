@@ -108,7 +108,7 @@ const ReviewSection = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={{ opacity, y }}
                 transition={{ duration: 0.6 }}
-                className={`bg-white rounded-2xl p-6 mb-16 shadow-md flex flex-col justify-between text-center w-full h-full`}
+                className={`bg-white cursor-grab rounded-2xl p-6 mb-16 shadow-md flex flex-col justify-between text-center w-full h-full`}
               >
                 <div>
                   <div className="text-4xl text-secondary font-bold mb-4">
@@ -119,7 +119,7 @@ const ReviewSection = () => {
                   </p>
                   <hr className="border-dashed border-gray-300 mb-6 w-1/2 mx-auto" />
                   <div className="flex items-center justify-center gap-4">
-                    <div className="h-10 w-10 rounded-full bg-gray-200"></div>
+                    <div className="h-10 w-10 rounded-full bg-gray-100"></div>
                     <div className="text-left">
                       <h4 className="text-base font-semibold text-neutral">
                         {review.name}
