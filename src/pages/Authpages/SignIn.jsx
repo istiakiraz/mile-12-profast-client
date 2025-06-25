@@ -1,12 +1,27 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
+import GoogleLogIn from "./GoogleLogIn";
+import useAuth from "../../hooks/useAuth";
 
 const SignIn = () => {
   const { register, handleSubmit,  formState: { errors }, } = useForm();
 
+  const {signInUser,} = useAuth()
+
+
+
   const onSubmit = (data) => {
     console.log(data);
+
+    signInUser(data.email, data.password)
+    .then(result=>{
+        console.log(result.user)
+    })
+    .catch(error =>{
+        console.log(error);
+    })
+
   };
 
   return (
@@ -52,6 +67,7 @@ const SignIn = () => {
         </fieldset>
       </form>
        <p className='text-[16px] mt-2 ' >Don’t have any account?  <Link to='/signup' > <span className='text-secondary underline hover:text-green-800' >Register</span> </Link></p>
+       <GoogleLogIn></GoogleLogIn>
     </div>
   );
 };

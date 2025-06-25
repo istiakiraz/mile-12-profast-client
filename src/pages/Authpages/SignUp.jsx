@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router";
 import useAuth from "../../hooks/useAuth";
+import GoogleLogIn from "./GoogleLogIn";
 
 const SignUp = () => {
 
@@ -100,6 +101,7 @@ const SignUp = () => {
           </span>{" "}
         </Link>
       </p>
+      <GoogleLogIn></GoogleLogIn>
     </div>
   );
 };
