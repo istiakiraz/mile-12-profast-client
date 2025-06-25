@@ -5,6 +5,7 @@ import Hero from "../pages/Home/HomeComponents/Hero";
 import HomePage from "../pages/Home/HomePage";
 import AuthLayouts from "../layouts/AuthLayouts";
 import SignIn from "../pages/Authpages/SignIn";
+import SignUp from "../pages/Authpages/SignUp";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: 'signin',
         Component: SignIn
+      },
+      {
+        path:'signup',
+        Component: SignUp
       }
     ]
 
