@@ -6,6 +6,7 @@ import HomePage from "../pages/Home/HomePage";
 import AuthLayouts from "../layouts/AuthLayouts";
 import SignIn from "../pages/Authpages/SignIn";
 import SignUp from "../pages/Authpages/SignUp";
+import Coverage from "../pages/coverage/Coverage";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ export const router = createBrowserRouter([
         {
             index: true,
             Component: HomePage
+        },
+        {
+          path: "coverage",
+          Component : Coverage
         }
     ]
   },
