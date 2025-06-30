@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const generateTrackingID = () => {
   const date = new Date();
@@ -26,6 +27,7 @@ const AddParcel = () => {
 
 
     const {user} = useAuth();
+    const axiosSecure = useAxiosSecure()
 
   const {
     register,
@@ -111,11 +113,24 @@ const AddParcel = () => {
       tracking_id: generateTrackingID()
 
     };
-    // TODO: Replace with real DB save logic
+
+    axiosSecure.post('/parcels', formData)
+    .then(res=>{
+        console.log(res.data);
+
+        if(res.data.insertedId){
+
+            // TODO: redirect to payment page
     console.log("Saved Parcel:", formData);
     toast.success("Parcel info saved!");
     // reset();
     setShowConfirm(false);
+
+        }
+    })
+
+
+    
   };
 
   return (
