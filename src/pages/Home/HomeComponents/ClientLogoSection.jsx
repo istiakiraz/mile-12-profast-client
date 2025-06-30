@@ -12,7 +12,7 @@ const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7];
 
 const ClientLogoSection = () => {
   return (
-    <div className="lg:w-11/12 mx-auto my-20">
+    <div className="lg:w-11/12 bg-base-300 py-5 mx-auto my-20">
       <h1 className="text-center text-primary text-3xl mb-4 font-bold ">
         We've helped thousands of sales teams
       </h1>
@@ -24,7 +24,7 @@ const ClientLogoSection = () => {
   className="overflow-hidden" >
         {
             logos.map((logo, index) =>(
-                <div key={index} className="mx-14 cursor-grab mt-8 hover:scale-110 transition-transform duration-300 scroll-none flex items-center"  >
+                <div key={index} className="mx-14 cursor-grab  mt-8 hover:scale-110 transition-transform duration-300 scroll-none flex items-center"  >
                     <img className="h-6 object-contain " src={logo} alt="logo" />
 
                 </div>

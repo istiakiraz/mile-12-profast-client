@@ -19,7 +19,7 @@ const FlyToLocation = ({ coords }) => {
   const map = useMap();
   if (coords) {
     map.flyTo(coords, 12, {
-      duration: 3,
+      duration: 1.5,
     });
   }
   return null;
