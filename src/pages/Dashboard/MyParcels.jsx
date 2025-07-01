@@ -31,12 +31,13 @@ import React from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import dayjs from "dayjs";
+import Swal from "sweetalert2";
 
 const MyParcels = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
 
-  const { data: parcels = [], isLoading } = useQuery({
+  const { data: parcels = [], isLoading, refetch } = useQuery({
     queryKey: ["my-parcels", user.email],
     queryFn: async () => {
       const res = await axiosSecure.get(`/parcels?email=${user.email}`);
@@ -54,13 +55,33 @@ const MyParcels = () => {
     // Future: Trigger payment flow here
   };
 
-  const handleDelete = (parcel) => {
-    const confirm = window.confirm("Are you sure you want to delete?");
-    if (confirm) {
-      // TODO: implement delete API
-      console.log("Deleting", parcel._id);
+ const handleDelete = (parcel) => {
+  Swal.fire({
+    title: "Are you sure?",
+    text: `You are about to delete parcel: ${parcel.title}`,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Yes, delete it!",
+  }).then(async (result) => {
+    if (result.isConfirmed) {
+      try {
+        const res = await axiosSecure.delete(`/parcels/${parcel._id}`);
+        if (res.data?.deletedCount > 0) {
+          refetch()
+          Swal.fire("Deleted!", "Parcel has been deleted.", "success");
+          
+        } else {
+          Swal.fire("Error!", "Parcel could not be deleted.", "error");
+        }
+      } catch (error) {
+        console.error(error);
+        Swal.fire("Error!", "Something went wrong.", "error");
+      }
     }
-  };
+  });
+};
 
   if (isLoading) return <p className="text-center">Loading...</p>;
 
@@ -75,6 +96,7 @@ const MyParcels = () => {
           <thead className="bg-base-200 text-base font-semibold text-base-content">
             <tr>
               <th>#</th>
+              <th>Title</th>
               <th>Type</th>
               <th>Date</th>
               <th>Cost</th>
@@ -86,6 +108,7 @@ const MyParcels = () => {
             {parcels.map((parcel, index) => (
               <tr key={parcel._id}>
                 <th>{index + 1}</th>
+                <td className="max-w-[180px] truncate" >{parcel.title}</td>
                 <td className="capitalize">
                   {parcel.type === "document" ? "📄 Document" : "📦 Non-Document"}
                 </td>
