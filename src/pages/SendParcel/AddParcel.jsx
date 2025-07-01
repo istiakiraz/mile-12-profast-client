@@ -110,7 +110,8 @@ const AddParcel = () => {
       creation_date: new Date().toISOString(),
       payment_status: "unpaid",
       delivery_status: "not_collected",
-      tracking_id: generateTrackingID()
+      tracking_id: generateTrackingID(),
+      cost: deliveryCost,
 
     };
 
