@@ -1,5 +1,3 @@
-
-
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import useAuth from "../../hooks/useAuth";
@@ -14,9 +12,9 @@ const MyParcels = () => {
   const navigate = useNavigate()
 
   const { data: parcels = [], isLoading, refetch } = useQuery({
-    queryKey: ["my-parcels", user.email],
+    queryKey: ["my-parcels", user?.email],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/parcels?email=${user.email}`);
+      const res = await axiosSecure.get(`/parcels?email=${user?.email}`);
       return res.data;
     },
   });
