@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Outlet } from 'react-router';
 import Logo from "../shared/Logo";
+import { FaBox, FaHistory, FaHome, FaSearchLocation, FaUserEdit } from 'react-icons/fa';
 
 const DashboardLayout = () => {
     return (
@@ -43,8 +44,31 @@ const DashboardLayout = () => {
     <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
       {/* Sidebar content here */}
      <li className='mb-3'> <Logo></Logo></li>
-      <li><a>Home</a></li>
-      <li><NavLink to='/dashboard/myparcels' >My Parcels</NavLink></li>
+      <li>
+  <NavLink to='/' className="flex items-center gap-2">
+    <FaHome /> Home
+  </NavLink>
+</li>
+<li>
+  <NavLink to='/dashboard/myparcels' className="flex items-center gap-2">
+    <FaBox /> My Parcels
+  </NavLink>
+</li>
+<li>
+  <NavLink to='/dashboard/payment_history' className="flex items-center gap-2">
+    <FaHistory /> Payment History
+  </NavLink>
+</li>
+<li>
+  <NavLink to='/dashboard/track' className="flex items-center gap-2">
+    <FaSearchLocation /> Track a Package
+  </NavLink>
+</li>
+<li>
+  <NavLink to='/dashboard/profile' className="flex items-center gap-2">
+    <FaUserEdit /> Update Profile
+  </NavLink>
+</li>
     </ul>
   </div>
 </div>
