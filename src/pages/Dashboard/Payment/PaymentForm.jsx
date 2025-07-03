@@ -28,8 +28,10 @@ const PaymentForm = () => {
     return <p className="text-center">loading...</p>;
   }
 
-  // console.log(parcelInfo);
+//   console.log(parcelInfo.title
+// );
 
+  const title = parcelInfo.title
   const amount = parcelInfo.cost;
   const amountInCents = amount * 100;
 
@@ -87,6 +89,7 @@ const PaymentForm = () => {
             // step-04 : mark parcel paid also create payment history
 
             const paymentData = {
+              title,
               parcelId,
               email: user.email,
               amount,

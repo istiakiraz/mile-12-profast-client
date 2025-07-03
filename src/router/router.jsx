@@ -13,6 +13,7 @@ import MyParcels from "../pages/Dashboard/MyParcels";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory";
 import TrackParcel from "../pages/Dashboard/Payment/TrackParcel";
+import RiderForm from "../pages/Rider/RiderForm";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,12 @@ export const router = createBrowserRouter([
           path: 'sendParcel',
           element: <PrivateRoute>
             <AddParcel></AddParcel>
+          </PrivateRoute>
+        },
+        {
+          path: "rider",
+          element: <PrivateRoute>
+            <RiderForm></RiderForm>
           </PrivateRoute>
         }
     ]

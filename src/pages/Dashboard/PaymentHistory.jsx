@@ -18,6 +18,8 @@ const PaymentHistory = () => {
     },
   });
 
+  console.log(payments[0]);
+
   if (isPending) {
     return <p className="text-center">Loading...</p>;
   }
@@ -33,6 +35,7 @@ const PaymentHistory = () => {
           <thead>
             <tr className="bg-base-200 text-xs text-primary uppercase">
               <th>#</th>
+              <th>Parcel Name</th>
               <th>Transaction ID</th>
               <th>Amount</th>
               <th>Method</th>
@@ -44,6 +47,7 @@ const PaymentHistory = () => {
             {payments.map((payment, index) => (
               <tr key={payment._id}>
                 <td>{index + 1}</td>
+                <td>{payment.title}</td>
                 <td className="font-mono text-xs text-primary">
                   {payment.transactionId}
                 </td>

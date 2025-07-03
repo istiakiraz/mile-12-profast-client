@@ -22,20 +22,45 @@ const Navbar = () => {
   const navLinks = (
     <>
       <li>
-        <NavLink to='/' >Home</NavLink>
+        <NavLink className={({ isActive }) =>
+          isActive
+            ? " bg-secondary font-bold px-3  rounded-2xl  "
+            : " group relative px-3"
+        } to='/' >Home</NavLink>
       </li>
       <li>
-        <NavLink to='/coverage' >Coverage</NavLink>
+        <NavLink className={({ isActive }) =>
+          isActive
+            ? " bg-secondary font-bold px-3  rounded-2xl  "
+            : " group relative px-3"
+        } to='/coverage' >Coverage</NavLink>
       </li>
       <li>
-        <NavLink to='/sendParcel' >Send A Parcel</NavLink>
+        <NavLink className={({ isActive }) =>
+          isActive
+            ? " bg-secondary font-bold px-3  rounded-2xl  "
+            : " group relative px-3"
+        } to='/sendParcel' >Send A Parcel</NavLink>
+      </li>
+        <li>
+        <NavLink className={({ isActive }) =>
+          isActive
+            ? " bg-secondary font-bold px-3  rounded-2xl  "
+            : " group relative px-3"
+        } to='/rider' >Be a Rider</NavLink>
       </li>
 
       {
         user &&  <li>
-        <NavLink to='/dashboard' >Dashboard</NavLink>
+        <NavLink className={({ isActive }) =>
+          isActive
+            ? " bg-secondary font-bold px-3  rounded-2xl  "
+            : " group relative px-3"
+        } to='/dashboard' >Dashboard</NavLink>
       </li>
       }
+
+     
      
     </>
   );
