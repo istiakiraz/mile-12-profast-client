@@ -52,7 +52,7 @@ const RiderForm = () => {
 
 
     // you can send `data` to your backend here
-    // reset()
+    reset()
   };
 
   return (
