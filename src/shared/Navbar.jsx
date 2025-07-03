@@ -77,7 +77,11 @@ const Navbar = () => {
           {navLinks}
         </ul>
       </div>
-      <div className="navbar-end">
+    
+      <div className="navbar-end flex items-center gap-2">
+         <div className="rounded-full size-11 avatar">
+       <img className="rounded-full" src={user?.photoURL} alt="" />
+     </div>
         {
           user ? <button onClick={handleSignOut} className="btn bg-secondary" >Sign Out</button> : <Link to='/signin' ><button className="btn bg-secondary" >Sign In</button></Link>
         }
