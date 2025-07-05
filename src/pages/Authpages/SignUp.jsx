@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import GoogleLogIn from "./GoogleLogIn";
 import axios from "axios";
@@ -13,13 +13,19 @@ const SignUp = () => {
     formState: { errors },
   } = useForm();
 
+  
+     const location = useLocation();
+  const navigate = useNavigate();
+
+  const from = location.state?.from || '/'
+
   const { createUser, updateUserProfile } = useAuth();
   const axiosInstance = useAxios()
 
   const [profilePic, setProfilePic] = useState("");
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
 
     createUser(data.email, data.password)
       .then(async(result) => {
@@ -33,6 +39,7 @@ const SignUp = () => {
           created_at : new Date().toISOString(),
           last_log_at : new Date().toISOString()
         }
+
 
         const userRes = await axiosInstance.post('/users', userInfo)
 
@@ -48,6 +55,7 @@ const SignUp = () => {
         };
         updateUserProfile(userProfile)
           .then(() => {
+            navigate(from)
             console.log("profile name pic updated");
           })
           .catch((error) => {

@@ -81,6 +81,12 @@ const DashboardLayout = () => {
     Pending Rider
   </NavLink>
 </li>
+<li>
+  <NavLink to='/dashboard/makeAdmin' className="flex items-center gap-2">
+    <FaUserClock  className="text-lg" />
+    Make Admin
+  </NavLink>
+</li>
     </ul>
   </div>
 </div>

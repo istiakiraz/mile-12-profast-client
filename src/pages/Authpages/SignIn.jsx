@@ -11,6 +11,7 @@ const SignIn = () => {
 
     const location = useLocation();
   const navigate = useNavigate();
+//  const from = location.state?.from || '/';
 
 
 
@@ -70,7 +71,7 @@ const SignIn = () => {
           
         </fieldset>
       </form>
-       <p className='text-[16px] mt-2 ' >Don’t have any account?  <Link to='/signup' > <span className='text-secondary underline hover:text-green-800' >Register</span> </Link></p>
+       <p className='text-[16px] mt-2 ' >Don’t have any account?  <Link  to='/signup' > <span className='text-secondary underline hover:text-green-800' >Register</span> </Link></p>
        <GoogleLogIn></GoogleLogIn>
     </div>
   );

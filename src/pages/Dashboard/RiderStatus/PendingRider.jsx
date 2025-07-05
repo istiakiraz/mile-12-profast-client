@@ -18,7 +18,7 @@ const PendingRider = () => {
 
   if (isLoading) return <p className="text-center">Loading...</p>;
 
-  const handleApprove = async (id) => {
+  const handleApprove = async (id, email) => {
     const confirm = await Swal.fire({
       title: "Are you sure?",
       text: "You want to approve this rider?",
@@ -30,9 +30,12 @@ const PendingRider = () => {
     });
 
     if (confirm.isConfirmed) {
+     
+      const  status = "approved";
       try {
         const res = await axiosSecure.patch(`/riders/${id}/status`, {
-          status: "approved",
+         status,
+         email
         });
 
         if (res.data.modifiedCount > 0) {
@@ -94,7 +97,7 @@ const PendingRider = () => {
         </td> {/* ✅ Show formatted date */}
         <td className="flex flex-wrap gap-2">
           <button
-            onClick={() => handleApprove(rider._id)}
+            onClick={() => handleApprove(rider?._id, rider.email )}
             className="btn btn-success btn-sm text-white"
           >
             <FaCheck className="mr-1" /> Approve
