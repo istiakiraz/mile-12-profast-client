@@ -2,8 +2,14 @@ import React from 'react';
 import { NavLink, Outlet } from 'react-router';
 import Logo from "../shared/Logo";
 import { FaBox, FaHistory, FaHome, FaSearchLocation, FaUserCheck, FaUserClock, FaUserEdit } from 'react-icons/fa';
+import useUserRole from '../hooks/useUserRole';
 
 const DashboardLayout = () => {
+
+  const { role , roleLoading} = useUserRole()
+ 
+
+
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -69,24 +75,33 @@ const DashboardLayout = () => {
     <FaUserEdit /> Update Profile
   </NavLink>
 </li>
-<li>
+
+{!roleLoading && role === "admin" &&
+  <>
+  <li>
   <NavLink to='/dashboard/activeRider' className="flex items-center gap-2">
     <FaUserCheck color='green' className="text-lg" />
     Active Rider
   </NavLink>
 </li>
+
 <li>
   <NavLink to='/dashboard/pendingRider' className="flex items-center gap-2">
     <FaUserClock color='red' className="text-lg" />
     Pending Rider
   </NavLink>
 </li>
+
 <li>
   <NavLink to='/dashboard/makeAdmin' className="flex items-center gap-2">
     <FaUserClock  className="text-lg" />
     Make Admin
   </NavLink>
 </li>
+  
+  
+  </>
+}
     </ul>
   </div>
 </div>
