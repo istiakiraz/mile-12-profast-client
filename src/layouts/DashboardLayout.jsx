@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import { NavLink, Outlet } from 'react-router';
 import Logo from "../shared/Logo";
 import { FaBox, FaHistory, FaHome, FaSearchLocation, FaUserCheck, FaUserClock, FaUserEdit } from 'react-icons/fa';
@@ -7,35 +7,58 @@ import useUserRole from '../hooks/useUserRole';
 const DashboardLayout = () => {
 
   const { role , roleLoading} = useUserRole()
+
+  
+    const [isOpen, setIsOpen] = useState(false);
+  const drawerRef = useRef(null); // ✅ drawer toggle ref
+
+  const toggleDrawer = () => {
+    setIsOpen(!isOpen);
+    if (drawerRef.current) {
+      drawerRef.current.checked = !drawerRef.current.checked;
+    }
+  };
  
 
 
     return (
         <div>
             <div className="drawer lg:drawer-open">
-  <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-  <div className="drawer-content flex flex-col ">
-
+   <input
+        id="my-drawer-2"
+        type="checkbox"
+        className="drawer-toggle"
+        ref={drawerRef} // ✅ attached ref
+      />
+      <div className="drawer-content flex flex-col">
         {/* Navbar */}
-    <div className="navbar bg-base-300 lg:hidden w-full">
-      <div className="flex-none ">
-        <label htmlFor="my-drawer-2" aria-label="open sidebar" className="btn btn-square btn-ghost">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            className="inline-block h-6 w-6 stroke-current"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </label>
-      </div>
-      <div className="mx-2 flex-1 lg:hidden px-2">Dashboard</div>
+        <div className="navbar bg-base-300 lg:hidden w-full">
+          <div className="flex-none">
+            <button
+              onClick={toggleDrawer}
+              className="btn btn-square btn-ghost"
+              aria-label="Toggle sidebar"
+            >
+              <div className="flex flex-col items-center justify-center w-10 h-10 space-y-1.5">
+                <span
+                  className={`w-8 h-1 bg-secondary transition-all duration-300 ease-in-out ${
+                    isOpen ? "rotate-45 translate-y-2" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`w-8 h-1 bg-primary rounded transition-all duration-300 ease-in-out ${
+                    isOpen ? "opacity-0" : ""
+                  }`}
+                ></span>
+                <span
+                  className={`w-8 h-1 bg-secondary  transition-all duration-300 ease-in-out ${
+                    isOpen ? "-rotate-45 -translate-y-2" : ""
+                  }`}
+                ></span>
+              </div>
+            </button>
+          </div>
+          <div className="mx-2 flex-1 lg:hidden px-2">Dashboard</div>
      
     </div>
     {/* Page content here */}
@@ -89,6 +112,12 @@ const DashboardLayout = () => {
   <NavLink to='/dashboard/pendingRider' className="flex items-center gap-2">
     <FaUserClock color='red' className="text-lg" />
     Pending Rider
+  </NavLink>
+</li>
+<li>
+  <NavLink to='/dashboard/assignRider' className="flex items-center gap-2">
+    <FaUserClock color='purple' className="text-lg" />
+    Assign Ride
   </NavLink>
 </li>
 
