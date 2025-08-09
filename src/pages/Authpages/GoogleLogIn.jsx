@@ -29,11 +29,6 @@ const GoogleLogIn = () => {
 
          console.log(userRes.data);
 
-
-
-
-
-
              navigate(`${location.state ? location.state : "/"}`);
         }).catch(error =>{
             console.log(error);

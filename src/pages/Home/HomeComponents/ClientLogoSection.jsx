@@ -33,6 +33,20 @@ const ClientLogoSection = () => {
 
 
       </Marquee>
+
+        <div className="mt-8">
+
+             <div className="min-h-screen flex items-center justify-center bg-[#1a082a]">
+      <div className="text-center space-y-4">
+        <h1 className="text-[80px] font-black text-white uppercase leading-none">
+          <span className="relative inline-block text-transparent stroke-text">Products &</span>
+        </h1>
+        <h2 className="text-[100px] font-black text-white uppercase leading-none">Services</h2>
+      </div>
+    </div>
+
+        </div>
+
     </div>
   );
 };

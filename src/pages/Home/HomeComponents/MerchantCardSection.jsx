@@ -16,6 +16,8 @@ const MerchantCardSection = () => {
             </div>
             <img data-aos="fade-left" src={img1} alt="location img " />
             <img className='absolute top-0 left-40 ' src={img2} alt="" />
+            
+
         </div>
     );
 };

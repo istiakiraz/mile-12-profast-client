@@ -21,6 +21,11 @@ body{
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #caeb66  !important ; /* your highlight */
+  background-color: #caeb66  !important ; 
+}
+
+.stroke-text {
+  -webkit-text-stroke: 2px white;
+  color: transparent;
 }
 

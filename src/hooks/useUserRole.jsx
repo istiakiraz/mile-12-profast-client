@@ -20,7 +20,7 @@ const useUserRole = () => {
     },
   });
 
-  return { role, roleLoading: authLoading || roleLoading, refetch };
+  return { role, roleLoading: roleLoading, refetch };
 };
 
 export default useUserRole;

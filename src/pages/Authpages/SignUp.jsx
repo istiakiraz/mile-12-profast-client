@@ -90,7 +90,9 @@ const SignUp = () => {
           <h1 className="lg:text-5xl mb-2 font-bold">Create an Account</h1>
           <p className="text-xl  mb-3">Register with Profast</p>
 
-          {/* photo input  */}
+       
+          
+            {/* photo input  */}
           <label className="label">Upload You Profile Picture</label>
           <input
             type="file"
@@ -98,6 +100,7 @@ const SignUp = () => {
             className="input w-full"
             placeholder="Your Profile Picture"
           />
+        
 
           {/* name input  */}
           <label className="label">Name</label>
